@@ -9,15 +9,22 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			dummyData
+			instraData : []
 		};
 	}
+
+	componentDidMount() {
+		this.setState({
+			instraData : dummyData
+		});
+	}
+
 	render() {
 		return (
 			<div className="App">
 				<SearchBar />
 
-				{this.state.dummyData.map((item) => <PostContainer key={item.id} posts={item} />)}
+				{this.state.instraData.map((item) => <PostContainer key={item.id} posts={item} />)}
 			</div>
 		);
 	}
