@@ -11,17 +11,19 @@ const PostContainer = (props) => {
 				<h2>{props.posts.username}</h2>
 			</div>
 
-			<img src={props.posts.imageUrl} alt={props.posts.username} />
-
-			<div className="likes">
-				<h3>{props.posts.likes} likes</h3>
+			<div className="main-img-container">
+				<img src={props.posts.imageUrl} alt={props.posts.username} />
 			</div>
 
-			<CommentSection commentArray={props.posts.comments} time={props.posts.timestamp} />
+			{/* <div className="likes">
+				<h3>{props.posts.likes} likes</h3>
+			</div> */}
 
-			{/* {console.log(props.posts.timestamp)} */}
-
-			<p className="time">{props.posts.timestamp}</p>
+			<CommentSection
+				commentArray={props.posts.comments}
+				time={props.posts.timestamp}
+				likes={props.posts.likes}
+			/>
 		</div>
 	);
 };
