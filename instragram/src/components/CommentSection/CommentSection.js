@@ -7,8 +7,8 @@ const CommentSection = (props) => {
 	return (
 		<div className="CommentSection">
 			<div className="comment-icons">
-				<i class="far fa-heart" />
-				<i class="far fa-comment" />
+				<i className="far fa-heart" />
+				<i className="far fa-comment" />
 			</div>
 			<div className="likes">
 				<h3>{props.likes} likes</h3>

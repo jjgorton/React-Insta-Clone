@@ -34,7 +34,7 @@
 }
 
 .searchBar-container input {
-	font-family: FontAwesome, 'Roboto', sans-serif;
+	font-family: 'FontAwesome', 'Roboto', sans-serif;
 	min-width: 125px;
 	width: 215px;
 	height: 24px;
