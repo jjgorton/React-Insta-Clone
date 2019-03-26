@@ -3,6 +3,8 @@ import './PostContainer.css';
 
 import CommentSection from '../CommentSection/CommentSection';
 
+import PropTypes from 'prop-types';
+
 const PostContainer = (props) => {
 	return (
 		<div className="PostContainer">
@@ -15,10 +17,6 @@ const PostContainer = (props) => {
 				<img src={props.posts.imageUrl} alt={props.posts.username} />
 			</div>
 
-			{/* <div className="likes">
-				<h3>{props.posts.likes} likes</h3>
-			</div> */}
-
 			<CommentSection
 				commentArray={props.posts.comments}
 				time={props.posts.timestamp}
@@ -26,6 +24,24 @@ const PostContainer = (props) => {
 			/>
 		</div>
 	);
+};
+
+PostContainer.propTypes = {
+	posts : PropTypes.shape({
+		id           : PropTypes.string.isRequired,
+		username     : PropTypes.string.isRequired,
+		thumbnailUrl : PropTypes.string,
+		imageUrl     : PropTypes.string,
+		likes        : PropTypes.number,
+		timestamp    : PropTypes.string,
+		comments     : PropTypes.arrayOf(
+			PropTypes.shape({
+				id       : PropTypes.string.isRequired,
+				username : PropTypes.string.isRequired,
+				text     : PropTypes.string
+			})
+		)
+	})
 };
 
 export default PostContainer;
