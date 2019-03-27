@@ -3,6 +3,10 @@ import './App.css';
 
 import PostsPage from './components/PostContainer/PostsPage';
 
+import withAuthenticate from './components/authentication/withAuthenticate';
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,7 +18,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="preApp">
-				<PostsPage />
+				<ComponentFromWithAuthenticate />
 			</div>
 		);
 	}
