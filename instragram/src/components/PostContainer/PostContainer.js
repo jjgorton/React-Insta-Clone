@@ -21,6 +21,9 @@ const PostContainer = (props) => {
 				commentArray={props.posts.comments}
 				time={props.posts.timestamp}
 				likes={props.posts.likes}
+				id={props.posts.id}
+				addNewComment={props.addNewComment}
+				allData={props.posts}
 			/>
 		</div>
 	);

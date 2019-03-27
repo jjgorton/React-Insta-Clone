@@ -3,27 +3,82 @@ import './CommentSection.css';
 
 import Comment from './Comment';
 
-const CommentSection = (props) => {
-	return (
-		<div className="CommentSection">
-			<div className="comment-icons">
-				<i className="far fa-heart" />
-				<i className="far fa-comment" />
-			</div>
-			<div className="likes">
-				<h3>{props.likes} likes</h3>
-			</div>
+class CommentSection extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			comment : ''
+		};
+	}
 
-			{props.commentArray.map((item) => <Comment key={item.id} comment={item} />)}
+	// addNewComment(e, index) {
+	// 	const copy = this.state.commentArray.slice();
+	// 	const newComment = {
+	// 		id: index,
+	// 		username: 'joshCodes',
+	// 		text: e
+	// 	};
 
-			<p className="time">{props.time}</p>
+	// 	copy.push(newComment);
 
-			<div className="add-comment">
-				<input placeholder="Add a comment..." />
-				<h3>...</h3>
+	// 	this.setState({commentArray: copy});
+	// };
+
+	handleChanges = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+
+	submitComment = (e) => {
+		e.preventDefault();
+		// take the item off of state
+		// send that item to a function defined on App.js
+		this.props.addNewComment(this.state.comment, this.props.id);
+		// reset the state
+		this.setState({ comment: '' });
+	};
+
+	render() {
+		return (
+			<div className="CommentSection">
+				<div className="comment-icons">
+					<i className="far fa-heart" />
+					<i className="far fa-comment" />
+				</div>
+				<div className="likes">
+					<h3>{this.props.likes} likes</h3>
+				</div>
+
+				{this.props.commentArray.map((item) => <Comment key={item.id} comment={item} />)}
+
+				<p className="time">{this.props.time}</p>
+
+				<form onSubmit={this.submitComment} className="add-comment">
+					<input
+						type="text"
+						placeholder="Add a comment..."
+						value={this.state.comment}
+						name="comment"
+						onChange={this.handleChanges}
+					/>
+					<button>...</button>
+				</form>
+
+				{/* <form
+					onSubmit={() => this.props.addNewComment(this.state.comment, this.props.id, this.props.allData)}
+					className="add-comment"
+				>
+					<input
+						type="text"
+						placeholder="Add a comment..."
+						value={this.state.comment}
+						name="comment"
+						onChange={this.handleChanges}
+					/>
+					<button>...</button>
+				</form> */}
 			</div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 export default CommentSection;

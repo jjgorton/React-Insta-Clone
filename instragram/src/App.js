@@ -6,8 +6,8 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			instraData : []
 		};
@@ -17,14 +17,57 @@ class App extends React.Component {
 		this.setState({
 			instraData : dummyData
 		});
+		// console.log(this.state.instraData);
 	}
+
+	addNewComment = (e, index) => {
+		// e.preventDefault();
+
+		// const copy = this.state.instraData.slice();
+		const newComment = {
+			id       : 'new',
+			username : 'joshCodes',
+			text     : e
+		};
+
+		// const selectPost = this.state.instraData.filter((post) => index === post.id);
+
+		// console.log(selectPost.id);
+
+		// selectPost.comments.push(newComment);
+
+		// const copy = this.state.instraData.map((item) => {
+		// 	if (item.id === index) {
+		// 		item.comments.push(newComment);
+		// 	}
+		// 	return item;
+		// });
+
+		// console.log(copy);
+
+		// this.setState({
+		// 	instraData :
+		// });
+
+		this.setState({
+			instraData : this.state.instraData.map((item) => {
+				if (item.id === index) {
+					// console.log(typeof item.comments);
+					item.comments.push(newComment);
+				}
+				return { ...item };
+			})
+		});
+	};
 
 	render() {
 		return (
 			<div className="App">
 				<SearchBar />
-
-				{this.state.instraData.map((item) => <PostContainer key={item.id} posts={item} />)}
+				{/* {console.log(this.state.instraData)} */}
+				{this.state.instraData.map((item) => (
+					<PostContainer key={item.id} posts={item} addNewComment={this.addNewComment} />
+				))}
 			</div>
 		);
 	}
