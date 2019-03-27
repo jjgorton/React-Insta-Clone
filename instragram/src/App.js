@@ -52,10 +52,26 @@ class App extends React.Component {
 		this.setState({
 			instraData : this.state.instraData.map((item) => {
 				if (item.id === index) {
-					// console.log(typeof item.comments);
 					item.comments.push(newComment);
 				}
 				return { ...item };
+			})
+		});
+	};
+
+	toggleItem = (id) => {
+		this.setState({
+			instraData : this.state.instraData.map((item) => {
+				if (item.id === id) {
+					return {
+						...item,
+						// task: item.task,
+						// id: item.id,
+						// completed: item.completed
+						likes : item.likes + 1
+					};
+				}
+				return item;
 			})
 		});
 	};
@@ -64,9 +80,14 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<SearchBar />
-				{/* {console.log(this.state.instraData)} */}
+
 				{this.state.instraData.map((item) => (
-					<PostContainer key={item.id} posts={item} addNewComment={this.addNewComment} />
+					<PostContainer
+						key={item.id}
+						posts={item}
+						addNewComment={this.addNewComment}
+						toggleItem={this.toggleItem}
+					/>
 				))}
 			</div>
 		);
