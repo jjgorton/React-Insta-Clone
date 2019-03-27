@@ -59,7 +59,7 @@ class App extends React.Component {
 		});
 	};
 
-	toggleItem = (id) => {
+	addLike = (id) => {
 		this.setState({
 			instraData : this.state.instraData.map((item) => {
 				if (item.id === id) {
@@ -76,17 +76,28 @@ class App extends React.Component {
 		});
 	};
 
+	searchFunc = (search) => {
+		const copy = this.state.instraData;
+		if (search === '') {
+			this.componentDidMount();
+		} else {
+			this.setState({
+				instraData : copy.filter((user) => search === user.username)
+			});
+		}
+	};
+
 	render() {
 		return (
 			<div className="App">
-				<SearchBar />
+				<SearchBar searchFunc={this.searchFunc} />
 
 				{this.state.instraData.map((item) => (
 					<PostContainer
 						key={item.id}
 						posts={item}
 						addNewComment={this.addNewComment}
-						toggleItem={this.toggleItem}
+						addLike={this.addLike}
 					/>
 				))}
 			</div>

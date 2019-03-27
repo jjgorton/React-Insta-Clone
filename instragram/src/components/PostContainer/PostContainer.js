@@ -24,7 +24,7 @@ const PostContainer = (props) => {
 				id={props.posts.id}
 				addNewComment={props.addNewComment}
 				allData={props.posts}
-				toggleItem={props.toggleItem}
+				addLike={props.addLike}
 			/>
 		</div>
 	);

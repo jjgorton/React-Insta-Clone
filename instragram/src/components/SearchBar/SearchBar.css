@@ -45,6 +45,14 @@
 	background: rgb(247, 247, 247);
 }
 
+.searchBar-container button {
+	font-size: 16px;
+	color: gray;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 .icons {
 	font-size: 20px;
 	color: gray;

@@ -41,7 +41,7 @@ class CommentSection extends React.Component {
 		return (
 			<div className="CommentSection">
 				<div className="comment-icons">
-					<i onClick={() => this.props.toggleItem(this.props.id)} className="far fa-heart" />
+					<i onClick={() => this.props.addLike(this.props.id)} className="far fa-heart" />
 					<i className="far fa-comment" />
 				</div>
 				<div className="likes">
