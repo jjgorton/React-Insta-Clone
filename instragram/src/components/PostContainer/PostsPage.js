@@ -5,6 +5,7 @@ import dummyData from '../../dummy-data';
 
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
+// import Post from './Post';
 
 class PostsPage extends React.Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class PostsPage extends React.Component {
 	addNewComment = (e, index) => {
 		const newComment = {
 			id       : 'new',
-			username : 'joshCodes',
+			username : localStorage.key(0),
 			text     : e
 		};
 
@@ -52,24 +53,37 @@ class PostsPage extends React.Component {
 	};
 
 	searchFunc = (search) => {
+		this.setState({
+			instraData : dummyData
+		});
+
 		const copy = this.state.instraData;
 
+		// let postData = copy;
 		let filtered = copy.filter((user) => search === user.username);
 
-		if (search === '') {
-			console.log('if', copy);
-		} else {
-			console.log('ese', filtered);
-		}
-
 		// if (search === '') {
-		// 	// this.componentDidMount();
-		// } else {
-		// 	// this.componentDidMount();
+		// 	console.log('if', copy);
 		// 	this.setState({
-		// 		instraData : copy.filter((user) => search === user.username)
+		// 		instraData : copy
+		// 	});
+		// } else {
+		// 	console.log('ese', filtered);
+		// 	this.setState({
+		// 		instraData : filtered
 		// 	});
 		// }
+
+		if (search === '') {
+			this.setState({
+				instraData : dummyData
+			});
+		} else {
+			this.setState({
+				instraData : copy.filter((user) => search === user.username)
+			});
+			console.log(copy);
+		}
 	};
 
 	render() {
@@ -77,8 +91,11 @@ class PostsPage extends React.Component {
 			<div className="App">
 				<SearchBar searchFunc={this.searchFunc} />
 
+				{/* <Post data={this.searchFunc()} /> */}
+
 				{this.state.instraData.map((item) => (
 					<PostContainer
+						data={this.postData}
 						key={item.id}
 						posts={item}
 						addNewComment={this.addNewComment}
