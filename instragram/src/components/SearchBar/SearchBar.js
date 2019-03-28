@@ -1,6 +1,8 @@
 import React from 'react';
 import './SearchBar.css';
 
+import { SearchBarContainer, Logo, H2, Input, Button, Icons } from './SearchBarStyle';
+
 class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,31 +26,31 @@ class SearchBar extends React.Component {
 
 	render() {
 		return (
-			<div className="searchBar-container">
-				<div className="logo">
+			<SearchBarContainer>
+				<Logo>
 					<i className="fab fa-instagram" />
-					<h2>Instragram</h2>
-				</div>
+					<H2>Instragram</H2>
+				</Logo>
 
 				<form onSubmit={this.submitSearch}>
-					<input
+					<Input
 						type="text"
 						placeholder="Search"
 						value={this.state.search}
 						name="search"
 						onChange={this.handleChanges}
 					/>
-					<button>
+					<Button>
 						<i className="fas fa-search" />
-					</button>
+					</Button>
 				</form>
 
-				<div className="icons">
+				<Icons>
 					<i className="far fa-compass" />
 					<i className="far fa-heart" />
 					<i className="far fa-user" />
-				</div>
-			</div>
+				</Icons>
+			</SearchBarContainer>
 		);
 	}
 }

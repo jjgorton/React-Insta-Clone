@@ -1,14 +1,16 @@
 import React from 'react';
 import './CommentSection.css';
 
+import { CommentWrapper, CommentUser } from './CommentSectionStyle';
+
 import PropTypes from 'prop-types';
 
 const Comment = (props) => {
 	return (
-		<div className="Comment">
-			<h4>{props.comment.username}</h4>
+		<CommentWrapper>
+			<CommentUser>{props.comment.username}</CommentUser>
 			<p>{props.comment.text}</p>
-		</div>
+		</CommentWrapper>
 	);
 };
 

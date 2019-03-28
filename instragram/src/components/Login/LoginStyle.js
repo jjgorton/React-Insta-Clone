@@ -1,12 +1,15 @@
-/* .Login-container {
+// import React from 'react';
+import styled, { css } from 'styled-components';
+
+export const LoginContainer = styled.div`
 	background: rgb(235, 235, 235);
 	display: flex;
 	justify-content: center;
 	height: 500px;
 	width: 100%;
-} */
+`;
 
-/* .Login {
+export const LoginBox = styled.div`
 	margin-top: 10%;
 	background: rgba(1, 20, 61, 0.822);
 	border-radius: 10px;
@@ -19,9 +22,9 @@
 	align-items: center;
 	flex-direction: column;
 	flex-wrap: wrap;
-} */
+`;
 
-/* .Login form {
+export const Form = styled.form`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -29,4 +32,8 @@
 	flex-wrap: wrap;
 	width: 50%;
 	height: 50%;
-} */
+`;
+
+// export { LoginContainer, LoginBox };
+// export default LoginContainer;
+// export default LoginBox;

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Login.css';
 
+import { LoginContainer, LoginBox, Form } from './LoginStyle';
+
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
@@ -21,9 +23,9 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="Login-container">
-				<div className="Login">
-					<form onSubmit={this.login}>
+			<LoginContainer>
+				<LoginBox>
+					<Form onSubmit={this.login}>
 						<input
 							type="text"
 							placeholder="Username"
@@ -41,9 +43,9 @@ class Login extends React.Component {
 						/>
 
 						<button>Login</button>
-					</form>
-				</div>
-			</div>
+					</Form>
+				</LoginBox>
+			</LoginContainer>
 		);
 	}
 }

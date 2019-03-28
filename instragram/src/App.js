@@ -14,22 +14,11 @@ const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			instraData : []
-		};
 	}
-
-	// componentDidMount() {
-	// 	this.setState({
-	// 		instraData : dummyData
-	// 	});
-	// }
 
 	render() {
 		return (
 			<div className="preApp">
-				{/* <Login /> */}
-				{/* <PostsPage /> */}
 				<ComponentFromWithAuthenticate />
 			</div>
 		);

@@ -3,6 +3,16 @@ import './CommentSection.css';
 
 import Comment from './Comment';
 
+import {
+	CommentSectionWrapper,
+	CommentIconsWrapper,
+	LikesWrapper,
+	Time,
+	CommentForm,
+	CommentInput,
+	CommentButton
+} from './CommentSectionStyle';
+
 class CommentSection extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,19 +20,6 @@ class CommentSection extends React.Component {
 			comment : ''
 		};
 	}
-
-	// addNewComment(e, index) {
-	// 	const copy = this.state.commentArray.slice();
-	// 	const newComment = {
-	// 		id: index,
-	// 		username: 'joshCodes',
-	// 		text: e
-	// 	};
-
-	// 	copy.push(newComment);
-
-	// 	this.setState({commentArray: copy});
-	// };
 
 	handleChanges = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -39,44 +36,30 @@ class CommentSection extends React.Component {
 
 	render() {
 		return (
-			<div className="CommentSection">
-				<div className="comment-icons">
+			<CommentSectionWrapper>
+				<CommentIconsWrapper>
 					<i onClick={() => this.props.addLike(this.props.id)} className="far fa-heart" />
 					<i className="far fa-comment" />
-				</div>
-				<div className="likes">
+				</CommentIconsWrapper>
+				<LikesWrapper>
 					<h3>{this.props.likes} likes</h3>
-				</div>
+				</LikesWrapper>
 
 				{this.props.commentArray.map((item) => <Comment key={item.id} comment={item} />)}
 
-				<p className="time">{this.props.time}</p>
+				<Time>{this.props.time}</Time>
 
-				<form onSubmit={this.submitComment} className="add-comment">
-					<input
+				<CommentForm onSubmit={this.submitComment}>
+					<CommentInput
 						type="text"
 						placeholder="Add a comment..."
 						value={this.state.comment}
 						name="comment"
 						onChange={this.handleChanges}
 					/>
-					<button>...</button>
-				</form>
-
-				{/* <form
-					onSubmit={() => this.props.addNewComment(this.state.comment, this.props.id, this.props.allData)}
-					className="add-comment"
-				>
-					<input
-						type="text"
-						placeholder="Add a comment..."
-						value={this.state.comment}
-						name="comment"
-						onChange={this.handleChanges}
-					/>
-					<button>...</button>
-				</form> */}
-			</div>
+					<CommentButton>...</CommentButton>
+				</CommentForm>
+			</CommentSectionWrapper>
 		);
 	}
 }

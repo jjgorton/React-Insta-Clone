@@ -1,21 +1,23 @@
 import React from 'react';
 import './PostContainer.css';
 
+import { PostWrapper, PostHeader, Thumbnail, User, MainImgContainer, MainImg } from './PostContainerStyle';
+
 import CommentSection from '../CommentSection/CommentSection';
 
 import PropTypes from 'prop-types';
 
 const PostContainer = (props) => {
 	return (
-		<div className="PostContainer">
-			<div className="post-header">
-				<img src={props.posts.thumbnailUrl} alt={props.posts.username} />
-				<h2>{props.posts.username}</h2>
-			</div>
+		<PostWrapper>
+			<PostHeader>
+				<Thumbnail src={props.posts.thumbnailUrl} alt={props.posts.username} />
+				<User>{props.posts.username}</User>
+			</PostHeader>
 
-			<div className="main-img-container">
-				<img src={props.posts.imageUrl} alt={props.posts.username} />
-			</div>
+			<MainImgContainer>
+				<MainImg src={props.posts.imageUrl} alt={props.posts.username} />
+			</MainImgContainer>
 
 			<CommentSection
 				commentArray={props.posts.comments}
@@ -26,7 +28,7 @@ const PostContainer = (props) => {
 				allData={props.posts}
 				addLike={props.addLike}
 			/>
-		</div>
+		</PostWrapper>
 	);
 };
 

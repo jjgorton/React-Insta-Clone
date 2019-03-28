@@ -7,6 +7,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
 // import Post from './Post';
 
+import AppContainer from './PostsPageStyle';
+
 class PostsPage extends React.Component {
 	constructor(props) {
 		super(props);
@@ -88,7 +90,7 @@ class PostsPage extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
+			<AppContainer>
 				<SearchBar searchFunc={this.searchFunc} />
 
 				{/* <Post data={this.searchFunc()} /> */}
@@ -102,7 +104,7 @@ class PostsPage extends React.Component {
 						addLike={this.addLike}
 					/>
 				))}
-			</div>
+			</AppContainer>
 		);
 	}
 }
