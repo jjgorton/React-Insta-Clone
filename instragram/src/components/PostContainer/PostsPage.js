@@ -1,7 +1,8 @@
 import React from 'react';
 import './PostsPage.css';
 
-import dummyData from './dummy-data';
+import dummyData from '../../dummy-data';
+
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
 
@@ -52,13 +53,23 @@ class PostsPage extends React.Component {
 
 	searchFunc = (search) => {
 		const copy = this.state.instraData;
+
+		let filtered = copy.filter((user) => search === user.username);
+
 		if (search === '') {
-			this.componentDidMount();
+			console.log('if', copy);
 		} else {
-			this.setState({
-				instraData : copy.filter((user) => search === user.username)
-			});
+			console.log('ese', filtered);
 		}
+
+		// if (search === '') {
+		// 	// this.componentDidMount();
+		// } else {
+		// 	// this.componentDidMount();
+		// 	this.setState({
+		// 		instraData : copy.filter((user) => search === user.username)
+		// 	});
+		// }
 	};
 
 	render() {

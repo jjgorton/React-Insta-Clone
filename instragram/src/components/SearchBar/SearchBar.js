@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
 		// send that item to a function defined on App.js
 		this.props.searchFunc(this.state.search);
 		// reset the state
-		this.setState({ comment: '' });
+		this.setState({ search: '' });
 	};
 
 	render() {
