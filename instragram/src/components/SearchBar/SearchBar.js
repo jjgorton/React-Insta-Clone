@@ -11,6 +11,12 @@ class SearchBar extends React.Component {
 		};
 	}
 
+	logout = (e) => {
+		localStorage.clear();
+		console.log('clicked');
+		window.location.reload();
+	};
+
 	handleChanges = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
@@ -48,7 +54,7 @@ class SearchBar extends React.Component {
 				<Icons>
 					<i className="far fa-compass" />
 					<i className="far fa-heart" />
-					<i className="far fa-user" />
+					<i className="far fa-user" onClick={this.logout} />
 				</Icons>
 			</SearchBarContainer>
 		);

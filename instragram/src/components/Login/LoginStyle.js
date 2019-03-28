@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const LoginContainer = styled.div`
 	background: rgb(235, 235, 235);
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	height: 500px;
 	width: 100%;
 `;
@@ -30,8 +30,24 @@ export const Form = styled.form`
 	align-items: center;
 	flex-direction: column;
 	flex-wrap: wrap;
-	width: 50%;
-	height: 50%;
+	width: 60%;
+	height: 70%;
+`;
+
+export const Input = styled.input`
+	width: 70%;
+	height: 25px;
+	text-align: center;
+`;
+
+export const LoginButton = styled.button`
+	width: 45%;
+	height: 45px;
+	font-size: 20px;
+	background: rgb(1, 6, 145);
+	color: white;
+	border: 1px solid blue;
+	border-radius: 5px;
 `;
 
 // export { LoginContainer, LoginBox };

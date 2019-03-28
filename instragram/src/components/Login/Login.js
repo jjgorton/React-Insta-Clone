@@ -1,7 +1,8 @@
 import React from 'react';
 import './Login.css';
 
-import { LoginContainer, LoginBox, Form } from './LoginStyle';
+import { LoginContainer, LoginBox, Form, Input, LoginButton } from './LoginStyle';
+import { Logo, H2 } from '../SearchBar/SearchBarStyle';
 
 class Login extends React.Component {
 	constructor(props) {
@@ -24,9 +25,13 @@ class Login extends React.Component {
 	render() {
 		return (
 			<LoginContainer>
+				<Logo>
+					<i className="fab fa-instagram" />
+					<H2>Instragram</H2>
+				</Logo>
 				<LoginBox>
 					<Form onSubmit={this.login}>
-						<input
+						<Input
 							type="text"
 							placeholder="Username"
 							value={this.state.username}
@@ -34,7 +39,7 @@ class Login extends React.Component {
 							onChange={this.handleChanges}
 						/>
 
-						<input
+						<Input
 							type="text"
 							placeholder="Password"
 							value={this.state.password}
@@ -42,7 +47,7 @@ class Login extends React.Component {
 							onChange={this.handleChanges}
 						/>
 
-						<button>Login</button>
+						<LoginButton>Login</LoginButton>
 					</Form>
 				</LoginBox>
 			</LoginContainer>
