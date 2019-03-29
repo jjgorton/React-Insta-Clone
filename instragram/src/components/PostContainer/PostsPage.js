@@ -13,13 +13,15 @@ class PostsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			instraData : []
+			instraData : [],
+			filtered   : []
 		};
 	}
 
 	componentDidMount() {
 		this.setState({
-			instraData : dummyData
+			instraData : dummyData,
+			filtered   : dummyData
 		});
 	}
 
@@ -42,7 +44,7 @@ class PostsPage extends React.Component {
 
 	addLike = (id) => {
 		this.setState({
-			instraData : this.state.instraData.map((item) => {
+			filtered : this.state.filtered.map((item) => {
 				if (item.id === id) {
 					return {
 						...item,
@@ -55,34 +57,15 @@ class PostsPage extends React.Component {
 	};
 
 	searchFunc = (search) => {
-		this.setState({
-			instraData : dummyData
-		});
-
 		const copy = this.state.instraData;
-
-		// let postData = copy;
-		let filtered = copy.filter((user) => search === user.username);
-
-		// if (search === '') {
-		// 	console.log('if', copy);
-		// 	this.setState({
-		// 		instraData : copy
-		// 	});
-		// } else {
-		// 	console.log('ese', filtered);
-		// 	this.setState({
-		// 		instraData : filtered
-		// 	});
-		// }
 
 		if (search === '') {
 			this.setState({
-				instraData : dummyData
+				filtered : dummyData
 			});
 		} else {
 			this.setState({
-				instraData : copy.filter((user) => search === user.username)
+				filtered : copy.filter((user) => search === user.username)
 			});
 			console.log(copy);
 		}
@@ -93,9 +76,7 @@ class PostsPage extends React.Component {
 			<AppContainer>
 				<SearchBar searchFunc={this.searchFunc} />
 
-				{/* <Post data={this.searchFunc()} /> */}
-
-				{this.state.instraData.map((item) => (
+				{this.state.filtered.map((item) => (
 					<PostContainer
 						data={this.postData}
 						key={item.id}

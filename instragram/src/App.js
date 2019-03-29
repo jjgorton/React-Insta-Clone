@@ -12,10 +12,6 @@ import Login from './components/Login/Login';
 const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<div className="preApp">
